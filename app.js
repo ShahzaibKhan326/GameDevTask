@@ -12,6 +12,9 @@ let playerY = 0;
 let speed = 5 ;
 let keys = {}
 
+let currentAnimation =  "idle";
+
+
  
 document.addEventListener("keydown", e => keys[e.key] = true)
 document.addEventListener("keyup" , e => keys[e.key] = false)
@@ -22,17 +25,36 @@ function gameLoop()
     if(keys["ArrowRight"])
     {
         playerX += speed;
+        setAnimation("walk");
+         
     }
-    if(keys["ArrowLeft"])
+    else if(keys["ArrowLeft"])
     {
         playerX -= speed;
+        setAnimation("backwalk");
+       
+    }
+    else
+    {
+        setAnimation("idle")
     }
      hero.style.left = playerX+"px";
      
-
-
-
+  
      requestAnimationFrame(gameLoop)
 }
+
+function setAnimation(name)
+{
+    if(currentAnimation === name) return;
+
+    currentAnimation = name;
+    if(name === "walk") heroImg.src = walkFarward;
+    if(name === "backwalk") heroImg.src = walkBackward;
+    if(name === "idle") heroImg.src = stance;
+    
+}
+
+
 
 gameLoop()
