@@ -9,7 +9,7 @@ const onJump = "Assets/Hero/hulk-intocrouch.gif"
 
 let playerX = 0;
 let playerY = 0;
-let speed = 5 ;
+let speed = 3 ;
 let keys = {}
 
 let currentAnimation =  "idle";
@@ -38,6 +38,9 @@ function gameLoop()
     {
         setAnimation("idle")
     }
+
+    if(playerX < 0) playerX =0;
+    if(playerX > 1000) playerX = 1000; ;
      hero.style.left = playerX+"px";
      
   
