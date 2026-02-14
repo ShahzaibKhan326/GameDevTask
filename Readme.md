@@ -1,1 +1,1 @@
-https://github.com/ShahzaibKhan326/GameDevTask
+https://shahzaibkhan326.github.io/GameDevTask/
